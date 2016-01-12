@@ -7,6 +7,10 @@ import SpeedAccuracyInstructions, StartMainInstructions, SpeedAccuracyTaskParall
 speedTime = '500'
 trialTime = '1500'
 myResolution = (1280,1024)
+responseKeys = ['q','p']
+# change to 
+# responseKeys = ['b','a']
+# for response box owned by Marjan Jahanshahi
 
 # change below to set specific port address, for instance to:
 # myPort = parallel.ParallelPort(address=0x0378)
@@ -61,7 +65,7 @@ if practiceTask == True:
     # practice task has 2*2*6*1 = 24 trials
     tids = list(product([0,1],[0,1],[.05,.1,.15,.25,.35,.5])) * 1
     random.shuffle(tids)
-    practice = SpeedAccuracyTaskParallelPort.Task(myWin,fileName,tids,len(tids) + 1,speedTime,trialTime,myPort)
+    practice = SpeedAccuracyTaskParallelPort.Task(myWin,fileName,tids,len(tids) + 1,speedTime,trialTime,myPort,responseKeys)
     practice.Run()
     dataFile = open(fileName, 'a') #a simple text file with 'comma-separated-values'
     dataFile.write('End Practice\n')
@@ -86,7 +90,7 @@ for i in range(3):
     random.shuffle(tids)
     allTids += tids
 
-task = SpeedAccuracyTaskParallelPort.Task(myWin,fileName,allTids,blockSize,speedTime,trialTime,myPort)
+task = SpeedAccuracyTaskParallelPort.Task(myWin,fileName,allTids,blockSize,speedTime,trialTime,myPort,responseKeys)
 task.Run()
 
 endText = "This is the end of the experiment \n \n"

@@ -12,7 +12,7 @@ class Task:
     postFeedbackTime = .1
     
     
-    def __init__(self,win,filename,tids,blockSize,speedTime,trialTime,port):
+    def __init__(self,win,filename,tids,blockSize,speedTime,trialTime,port,responseKeys):
         
         self.datafile = open(filename, 'a') #a simple text file with 'comma-separated-values'
 
@@ -23,6 +23,8 @@ class Task:
         self.trialTime = trialTime
         
         self.port = port
+        
+        self.responseKeys = responseKeys
         
         self.typeInstructions = visual.TextStim(win,text="Ac",pos=(0,0))
         
@@ -117,16 +119,16 @@ class Task:
                     self.dotPatch.draw()
                     self.win.flip()
                     for key in event.getKeys():
-                        if key in ['a','b','escape']:
+                        if key in [self.responseKeys[0],self.responseKeys[1],'escape']:
                             ttime = self.trialClock.getTime()
                             rgiven = True
-                            if key in ['b']:
+                            if key in [self.responseKeys[0]]:
                                 if self.tids[trial-1][0] == 0:
                                     self.port.setData(codes.response_left_correct)
                                 else:
                                     self.port.setData(codes.response_left_incorrect)
                                 response = 0
-                            if key in ['a']:
+                            if key in [self.responseKeys[1]]:
                                 if self.tids[trial-1][0] == 1:
                                     self.port.setData(codes.response_right_correct)
                                 else:
