@@ -6,8 +6,8 @@ import SpeedAccuracyInstructions, StartMainInstructions, SpeedAccuracyTaskParall
 
 speedTime = '500'
 trialTime = '1500'
-myResolution = (1280,1024)
-responseKeys = ['q','p']
+myResolution = (1300,800)
+responseKeys = ['f','j']
 # change to 
 # responseKeys = ['b','a']
 # for response box owned by Marjan Jahanshahi

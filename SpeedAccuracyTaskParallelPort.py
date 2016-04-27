@@ -36,8 +36,8 @@ class Task:
             nDots=120, fieldShape='circle', fieldPos=(0.0,0.0),dotSize=3,fieldSize=250,
             dotLife=-1, #number of frames for each dot to be drawn
             signalDots='different', #are the signal and noise dots 'different' or 'same' popns (see Scase et al)
-            noiseDots='walk', #do the noise dots follow random- 'walk', 'direction', or 'position'
-            speed=1, coherence=0.5)
+            noiseDots='position', #do the noise dots follow random- 'walk', 'direction', or 'position'
+            speed=.004, coherence=0.5)
         
         self.fixation = visual.ShapeStim(win,
             units='pix',
