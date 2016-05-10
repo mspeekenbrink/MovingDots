@@ -19,6 +19,20 @@ class codes:
     endBlockInstructions_on = 18
     endBlockInstructions_off = 19
     continueBlockResponse = 20
+    dots_left_on_5 = 21
+    dots_left_on_10 = 22
+    dots_left_on_15 = 23
+    dots_left_on_25 = 24
+    dots_left_on_35 = 25
+    dots_left_on_50 = 26
+    dots_left_on_100 = 27
+    dots_right_on_5 = 28
+    dots_right_on_10 = 29
+    dots_right_on_15 = 30
+    dots_right_on_25 = 31
+    dots_right_on_35 = 32
+    dots_right_on_50 = 33
+    dots_right_on_100 = 34
 #    def __init__(self):
         # do nothing
     

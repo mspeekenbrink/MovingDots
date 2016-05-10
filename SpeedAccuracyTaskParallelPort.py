@@ -110,10 +110,37 @@ class Task:
             # send parallel port signal
             self.port.setData(codes.fixation_off)
             if self.tids[trial-1] == 0:
-                self.port.setData(codes.dots_left_on)
+                #self.port.setData(codes.dots_left_on)
+                if self.tids[trial - 1][2] == .05:
+                    self.port.setData(codes.dots_left_on_5)
+                if self.tids[trial - 1][2] == .10:
+                    self.port.setData(codes.dots_left_on_10)
+                if self.tids[trial - 1][2] == .15:
+                    self.port.setData(codes.dots_left_on_15)
+                if self.tids[trial - 1][2] == .25:
+                    self.port.setData(codes.dots_left_on_25)
+                if self.tids[trial - 1][2] == .35:
+                    self.port.setData(codes.dots_left_on_35)
+                if self.tids[trial - 1][2] == .50:
+                    self.port.setData(codes.dots_left_on_50)
+                if self.tids[trial - 1][2] == 1.0:
+                    self.port.setData(codes.dots_left_on_100)
             else:
-                self.port.setData(codes.dots_right_on)
-            
+                #self.port.setData(codes.dots_right_on)
+                if self.tids[trial - 1][2] == .05:
+                    self.port.setData(codes.dots_right_on_5)
+                if self.tids[trial - 1][2] == .10:
+                    self.port.setData(codes.dots_right_on_10)
+                if self.tids[trial - 1][2] == .15:
+                    self.port.setData(codes.dots_right_on_15)
+                if self.tids[trial - 1][2] == .25:
+                    self.port.setData(codes.dots_right_on_25)
+                if self.tids[trial - 1][2] == .35:
+                    self.port.setData(codes.dots_right_on_35)
+                if self.tids[trial - 1][2] == .50:
+                    self.port.setData(codes.dots_right_on_50)
+                if self.tids[trial - 1][2] == 1.0:
+                    self.port.setData(codes.dots_right_on_100)
             while (self.trialClock.getTime() < self.trialTime):
                 if (rgiven == False):
                     self.dotPatch.draw()
