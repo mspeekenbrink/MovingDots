@@ -11,6 +11,7 @@ class Task:
     feedbackTime = .4
     postFeedbackTime = .1
     
+    language = 'Spanish'
     
     def __init__(self,win,filename,tids,blockSize,speedTime,trialTime,port,responseKeys):
         
@@ -49,7 +50,10 @@ class Task:
         
         self.trialClock = core.Clock()
         
-        self.tinstructions = ["ACCURATE","FAST"]
+        if self.language == 'Spanish':
+            self.tinstructions = ["PRECISO","RAPIDO"]
+        else:
+            self.tinstructions = ["ACCURATE","FAST"]
         
         self.datafile.write('trial,type(1=Ac;2=Sp),coherence,direction(1=L;2=R),response (1=L;2=R),responsetime,feedback (1=correct;2=incorrect;3=inTime;4=tooSlow;5=noResponse)\n')
         
@@ -178,30 +182,45 @@ class Task:
             # show feedback 400 ms
             if (ttime < 0):
                 self.feedback.setColor("red")
-                self.feedback.setText("No response")#
+                if self.language == 'Spanish':
+                    self.feedback.setText("Ninguna respuesta")#
+                else:
+                    self.feedback.setText("No response")#
                 feedcode = codes.feedback_noResponse_on
                 dfeed = 5
             else:
                 if (self.tids[trial - 1][1] == 0):
                     # accuracy
                     if (response == self.tids[trial - 1][0]):
-                        self.feedback.setText("correct")
+                        if self.language == 'Spanish':
+                            self.feedback.setText("Correcto")#
+                        else:
+                            self.feedback.setText("Correct")
                         self.feedback.setColor("green")
                         feedcode = codes.feedback_correct_on
                         dfeed = 1
                     else:
-                        self.feedback.setText("incorrect")
+                        if self.language == 'Spanish':
+                            self.feedback.setText("Incorrecto")#
+                        else:
+                            self.feedback.setText("Incorrect")
                         self.feedback.setColor("red")
                         feedcode = codes.feedback_incorrect_on
                         dfeed = 2
                 else:
                     if (ttime < self.speedTime):
-                        self.feedback.setText("in time")
+                        if self.language == 'Spanish':
+                            self.feedback.setText("A tiempo")#
+                        else:
+                            self.feedback.setText("In time")
                         self.feedback.setColor("green")
                         feedcode = codes.feedback_inTime_on
                         dfeed = 3
                     else:
-                        self.feedback.setText("too slow")
+                        if self.language == 'Spanish':
+                            self.feedback.setText("Muy lento")#
+                        else:
+                            self.feedback.setText("Too slow")
                         self.feedback.setColor("red")
                         feedcode = codes.feedback_tooSlow_on
                         dfeed = 4

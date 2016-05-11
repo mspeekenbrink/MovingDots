@@ -4,8 +4,8 @@ from psychopy import visual, event, core, data, gui, misc, parallel
 from itertools import product
 import SpeedAccuracyInstructions, StartMainInstructions, SpeedAccuracyTaskParallelPort
 
-speedTime = '500'
-trialTime = '1500'
+speedTime = '800'
+trialTime = '2000'
 myResolution = (1300,800)
 responseKeys = ['q','p']
 # change to 
