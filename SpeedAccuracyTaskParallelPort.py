@@ -183,7 +183,7 @@ class Task:
             if (ttime < 0):
                 self.feedback.setColor("red")
                 if self.language == 'Spanish':
-                    self.feedback.setText("Ninguna respuesta")#
+                    self.feedback.setText("Sin respuesta")#
                 else:
                     self.feedback.setText("No response")#
                 feedcode = codes.feedback_noResponse_on
